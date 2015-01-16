@@ -69,7 +69,7 @@
   (after 'evil-leader
     (evil-leader/set-leader ",")
     (evil-leader/set-key
-      "c"   'eshell-here
+      "c"   'ispell
       "b d" 'kill-this-buffer
       "v"   (kbd "C-w v C-w l")
       "n"   (kbd "C-w s C-w j")
@@ -158,7 +158,6 @@
 (define-key minibuffer-local-isearch-map [escape] 'my-minibuffer-keyboard-quit)
 
 (define-key minibuffer-local-map (kbd "C-w") 'backward-kill-word)
-
 
 (after 'package
   (evil-add-hjkl-bindings package-menu-mode-map 'emacs))

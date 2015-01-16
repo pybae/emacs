@@ -15,6 +15,7 @@
 
 ;; Fonts
 (set-default-font "Inconsolata-12")
+(add-to-list `default-frame-alist `(font . "Inconsolata-12")) ; for emacs client
 
 (line-number-mode t)
 (blink-cursor-mode 0)
@@ -50,4 +51,5 @@
 
 (provide 'init-eyecandy)
 ;;; init-eyecandy.el ends here
+
 
