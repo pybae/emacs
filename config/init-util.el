@@ -99,9 +99,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (split-window-vertically)
     (other-window 1)
     (eshell "new")
-    (rename-buffer (concat "*eshell: " name "*"))
-
-    (insert (concat "ls"))
-    (eshell-send-input)))
+    (rename-buffer (concat "*eshell: " name "*"))))
 
 (provide 'init-util)

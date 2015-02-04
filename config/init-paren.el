@@ -1,5 +1,5 @@
-(require-package 'autopair)
 (require-package 'paredit)
+(require-package 'autopair)
 
 (require 'autopair)
 (autopair-global-mode)
@@ -17,3 +17,4 @@
 (add-hook 'cider-mode-hook            #'enable-paredit-mode)
 
 (provide 'init-paren)
+

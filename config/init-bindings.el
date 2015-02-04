@@ -19,6 +19,10 @@
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   (define-key evil-visual-state-map (kbd ";") 'evil-ex) 
 
+  (after 'smex
+    (define-key evil-normal-state-map (kbd ":") 'smex)
+    (define-key evil-visual-state-map (kbd ":") 'smex))
+
   (define-key evil-visual-state-map (kbd "C-n") 'evil-next-visual-line)
   (define-key evil-visual-state-map (kbd "C-p") 'evil-previous-visual-line)
 
@@ -53,8 +57,9 @@
                                                (end-of-visual-line)
                                                (newline-and-indent)))
 
-  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
   ;; Remap some emacs bindings in insert  mode
+  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+  
   (define-key evil-insert-state-map (kbd "C-n") 'evil-next-visual-line)
   (define-key evil-insert-state-map (kbd "C-p") 'evil-previous-visual-line)
 
@@ -63,16 +68,17 @@
 
   (define-key evil-insert-state-map (kbd "C-k") 'kill-visual-line)
 
+  (define-key dired-mode-map (kbd "E") 'dired-toggle-read-only)
+  
   ;; Get man pages
   (define-key evil-normal-state-map (kbd "M") 'manual-entry)
 
   (after 'evil-leader
     (evil-leader/set-leader ",")
     (evil-leader/set-key
-      "c"   'ispell
+      "c"   'eshell
+      "d"   'dired-jump
       "b d" 'kill-this-buffer
-      "v"   (kbd "C-w v C-w l")
-      "n"   (kbd "C-w s C-w j")
 
       "g s" 'magit-status
       "g l" 'magit-log
@@ -88,20 +94,22 @@
   (after 'evil-matchit
     (define-key evil-normal-state-map "%" 'evilmi-jump-items))
   
-  (after 'smex
-    (define-key evil-normal-state-map (kbd ":") 'smex))
-
-  (define-key evil-normal-state-map (kbd "SPC b") 'helm-buffers-list)
   (define-key evil-normal-state-map (kbd "SPC k") 'ido-kill-buffer)
   (define-key evil-normal-state-map (kbd "SPC f") 'ido-find-file)
+  (define-key evil-normal-state-map (kbd "SPC b") 'ido-switch-buffer)
   (define-key evil-normal-state-map (kbd "SPC p") 'projectile-find-file)
 
   (after 'helm
+    (define-key evil-normal-state-map (kbd "C-x b") 'helm-buffers-list)
     (define-key evil-normal-state-map (kbd "SPC e") 'helm-recentf)
     (define-key evil-normal-state-map (kbd "SPC t") 'helm-etags-select)
     (define-key evil-normal-state-map (kbd "SPC l") 'helm-swoop)
+    (define-key evil-normal-state-map (kbd "SPC F") 'helm-locate)
     (define-key evil-normal-state-map (kbd "SPC y") 'helm-show-kill-ring))
 
+  (after 'helm-ag
+    (define-key evil-normal-state-map (kbd "SPC a") 'helm-ag))
+  
   (define-key evil-normal-state-map (kbd "[ SPC") (bind (evil-insert-newline-above) (forward-line)))
   (define-key evil-normal-state-map (kbd "] SPC") (bind (evil-insert-newline-below) (forward-line -1)))
 
@@ -120,27 +128,36 @@
   (define-key evil-normal-state-map (kbd "Q") 'my-window-killer)
   (define-key evil-normal-state-map (kbd "Y") (kbd "y$"))
 
-  (define-key evil-visual-state-map (kbd ", e") 'eval-region)
+  (define-key evil-normal-state-map (kbd "H") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "J") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "K") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "L") 'evil-window-right)
+
+  (define-key evil-normal-state-map (kbd "M-j") 'evil-join)
+  (define-key evil-emacs-state-map  (kbd "M-j") 'evil-join)
 
   ;; emacs lisp
   (after 'elisp-slime-nav-autoloads
     (evil-define-key 'normal emacs-lisp-mode-map (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point)
     (evil-define-key 'normal emacs-lisp-mode-map (kbd "M") 'elisp-slime-nav-describe-elisp-thing-at-point))
-  
-  (after 'ag
-    (define-key evil-normal-state-map (kbd "SPC a") 'ag))
 
   (after 'multiple-cursors
-    (define-key evil-emacs-state-map (kbd "C-.") 'mc/mark-next-like-this)
-    (define-key evil-emacs-state-map (kbd "C-,") 'mc/mark-previous-like-this)
-    (define-key evil-visual-state-map (kbd "C-.") 'mc/mark-all-like-this)
-    (define-key evil-normal-state-map (kbd "C-.") 'mc/mark-next-like-this)
-    (define-key evil-normal-state-map (kbd "C-,") 'mc/mark-previous-like-this))
+    (define-key evil-emacs-state-map (kbd "M-.") 'mc/mark-next-like-this)
+    (define-key evil-emacs-state-map (kbd "M-,") 'mc/mark-previous-like-this)
+    (define-key evil-emacs-state-map (kbd "M-/") 'mc/unmark-next-like-this)
+    (define-key evil-visual-state-map (kbd "M-.") 'mc/mark-all-like-this)
+    (define-key evil-visual-state-map (kbd "M-,") 'mc/edit-lines)
+    (define-key evil-normal-state-map (kbd "M-.") 'mc/mark-next-like-this)
+    (define-key evil-normal-state-map (kbd "M-,") 'mc/mark-previous-like-this)
+    (define-key evil-emacs-state-map (kbd "M-/") 'mc/unmark-next-like-this))
 
   (after 'ace-jump-mode
     (define-key evil-normal-state-map (kbd "SPC w") 'evil-ace-jump-word-mode)
     (define-key evil-normal-state-map (kbd "SPC c") 'evil-ace-jump-char-mode)
-    (define-key evil-normal-state-map (kbd "S-SPC") 'evil-ace-jump-line-mode))
+    (define-key evil-normal-state-map (kbd "S-SPC") 'evil-ace-jump-line-mode)
+    (define-key evil-visual-state-map (kbd "SPC w") 'evil-ace-jump-word-mode)
+    (define-key evil-visual-state-map (kbd "SPC c") 'evil-ace-jump-char-mode)
+    (define-key evil-visual-state-map (kbd "S-SPC") 'evil-ace-jump-line-mode))
 
   (after 'magit
     (define-key magit-status-mode-map (kbd "C-n") 'magit-goto-next-sibling-section)
@@ -174,7 +191,6 @@
 ;;   (define-key comint-mode-map [up] 'comint-previous-input)
 ;;   (define-key comint-mode-map [down] 'comint-next-input))
 
-
 (after 'auto-complete
   (define-key ac-completing-map (kbd "C-n") 'ac-next)
   (define-key ac-completing-map (kbd "C-p") 'ac-previous))
@@ -204,11 +220,15 @@
   (global-set-key [mouse-4] (bind (scroll-down 1)))
   (global-set-key [mouse-5] (bind (scroll-up 1))))
 
-
 (global-set-key [prior] 'previous-buffer)
 (global-set-key [next] 'next-buffer)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
+
+;; Completion that uses many different methods to find options.
+(global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
+(global-set-key (kbd "C-:") 'hippie-expand-lines)
+(global-set-key (kbd "C-,") 'completion-at-point)
 
 (provide 'init-bindings)

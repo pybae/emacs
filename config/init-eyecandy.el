@@ -51,5 +51,3 @@
 
 (provide 'init-eyecandy)
 ;;; init-eyecandy.el ends here
-
-

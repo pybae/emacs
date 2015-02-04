@@ -3,6 +3,7 @@
 
 (require-package 'helm)
 (require-package 'helm-swoop)
+(require-package 'helm-ag)
 
 (after 'projectile
   (require-package 'helm-projectile))

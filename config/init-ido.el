@@ -6,6 +6,10 @@
 (setq ido-use-filename-at-point 'guess)
 (setq ido-save-directory-list-file (concat user-emacs-directory ".cache/ido.last"))
 
+(require-package 'ido-vertical-mode)
+(require 'ido-vertical-mode)
+
+(ido-vertical-mode t)
 (ido-mode t)
 (ido-everywhere t)
 

@@ -35,17 +35,6 @@
       recentf-max-saved-items 1000
       recentf-max-menu-items 500)
 (recentf-mode +1)
-
-
-;; eshell
-(setq eshell-directory-name (concat user-emacs-directory ".cache/eshell"))
-(setq eshell-aliases-file (concat user-emacs-directory ".eshell-aliases"))
-(setq eshell-scroll-to-bottom-on-input 'all)
-(setq eshell-glob-case-insensitive t)
-(setq eshell-buffer-shorthand t)
-(setq eshell-error-if-no-glob t)
-(setq eshell-send-direct-to-subprocesses t)
-
 (defun delete-single-window (&optional window)
   "Remove WINDOW from the display.  Default is `selected-window'.
 If WINDOW is the only one in its frame, then `delete-frame' too."
@@ -58,8 +47,6 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
         (delete-frame)
         (delete-window (selected-window)))))
 
-(defun eshell/x (&rest args)
-  (delete-single-window))
 ;; erc
 (setq erc-log-channels-directory (concat user-emacs-directory ".cache/erc/logs"))
 
@@ -127,8 +114,9 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; set offset in C-type languages to 4
 (setq c-basic-offset 4)
 
-(setq-default
- indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; used to go back to previous window configurations
 (winner-mode 1)
