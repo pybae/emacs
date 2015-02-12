@@ -17,7 +17,7 @@
 (require 'init-yasnippet)
 
 ;; (require 'init-company)
-(require 'init-auto-complete)
+;; (require 'init-auto-complete)
 (require 'init-flycheck)
 
 (require 'init-projectile)
@@ -34,7 +34,7 @@
 (require 'init-web)
 (require 'init-python)
 (require 'init-shell)
-;; (require 'init-clojure)
+(require 'init-clojure)
 
 (require 'init-evil)
 (require 'init-misc)
