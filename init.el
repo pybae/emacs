@@ -34,6 +34,7 @@
 (require 'init-web)
 (require 'init-python)
 (require 'init-shell)
+(require 'init-writing)
 ;; (require 'init-clojure)
 
 (require 'init-evil)

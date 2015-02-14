@@ -5,3 +5,5 @@ elpa/
 var/ 
 .cache/
 .python-environments/
+/.#ac-comphist.dat
+/games/

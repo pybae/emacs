@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        TeX-insert-backslash
         beginning-of-visual-line
         delete-window
         dired-next-line
@@ -11,12 +12,15 @@
         end-of-visual-line
         paredit-forward-delete
         paredit-forward-kill-word
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        autopair-insert-opening
         dabbrev-expand
         dired-toggle-marks
+        evil-force-normal-state
         evil-normal-state
         shrink-window-if-larger-than-buffer
         text-scale-adjust
