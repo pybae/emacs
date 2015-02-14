@@ -11,13 +11,18 @@
         end-of-visual-line
         paredit-forward-delete
         paredit-forward-kill-word
+        paredit-kill
+        paredit-newline
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
         dabbrev-expand
         dired-toggle-marks
+        evil-ex
         evil-normal-state
         shrink-window-if-larger-than-buffer
+        smex
         text-scale-adjust
         ))

@@ -72,5 +72,8 @@
 (defadvice sgml-delete-tag (after reindent activate)
   (indent-region (point-min) (point-max)))
 
+(require-package 'restclient)
+
+(require 'restclient)
 
 (provide 'init-web)
