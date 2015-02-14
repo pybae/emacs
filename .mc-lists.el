@@ -12,6 +12,8 @@
         end-of-visual-line
         paredit-forward-delete
         paredit-forward-kill-word
+        paredit-kill
+        paredit-newline
         yas-expand
         ))
 
@@ -21,7 +23,9 @@
         dabbrev-expand
         dired-toggle-marks
         evil-force-normal-state
+        evil-ex
         evil-normal-state
         shrink-window-if-larger-than-buffer
+        smex
         text-scale-adjust
         ))

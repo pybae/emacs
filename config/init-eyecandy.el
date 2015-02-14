@@ -14,8 +14,7 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Fonts
-(set-default-font "Inconsolata-12")
-(add-to-list `default-frame-alist `(font . "Inconsolata-12")) ; for emacs client
+(set-default-font "Inconsolata-14")
 
 (line-number-mode t)
 (blink-cursor-mode 0)

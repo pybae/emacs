@@ -17,7 +17,7 @@
 
   ;; Bind semicolon to colon, one less key press
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
-  (define-key evil-visual-state-map (kbd ";") 'evil-ex) 
+  (define-key evil-visual-state-map (kbd ";") 'evil-ex)
 
   (after 'smex
     (define-key evil-normal-state-map (kbd ":") 'smex)
@@ -31,7 +31,7 @@
 
   (define-key evil-normal-state-map (kbd "C-a") 'beginning-of-line)
   (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
-  
+
   (define-key evil-normal-state-map (kbd "C-k") 'kill-visual-line)
 
   ;; Make is such that insert mode is emacs mode
@@ -59,7 +59,7 @@
 
   ;; Remap some emacs bindings in insert  mode
   (define-key evil-emacs-state-map [escape] 'evil-normal-state)
-  
+
   (define-key evil-insert-state-map (kbd "C-n") 'evil-next-visual-line)
   (define-key evil-insert-state-map (kbd "C-p") 'evil-previous-visual-line)
 
@@ -69,9 +69,6 @@
   (define-key evil-insert-state-map (kbd "C-k") 'kill-visual-line)
 
   (define-key dired-mode-map (kbd "E") 'dired-toggle-read-only)
-  
-  ;; Get man pages
-  (define-key evil-normal-state-map (kbd "M") 'manual-entry)
 
   (after 'evil-leader
     (evil-leader/set-leader ",")
@@ -80,6 +77,7 @@
       "d"   'dired-jump
       "b d" 'kill-this-buffer
 
+      "r"   'restclient-mode
       "g s" 'magit-status
       "g l" 'magit-log
       "g d" 'vc-diff
@@ -93,7 +91,7 @@
   ;; Plugin to jump to pairs of brackets, and such
   (after 'evil-matchit
     (define-key evil-normal-state-map "%" 'evilmi-jump-items))
-  
+
   (define-key evil-normal-state-map (kbd "SPC k") 'ido-kill-buffer)
   (define-key evil-normal-state-map (kbd "SPC f") 'ido-find-file)
   (define-key evil-normal-state-map (kbd "SPC b") 'ido-switch-buffer)
@@ -105,11 +103,10 @@
     (define-key evil-normal-state-map (kbd "SPC t") 'helm-etags-select)
     (define-key evil-normal-state-map (kbd "SPC l") 'helm-swoop)
     (define-key evil-normal-state-map (kbd "SPC F") 'helm-locate)
+    (define-key evil-normal-state-map (kbd "SPC a") 'helm-ag)
     (define-key evil-normal-state-map (kbd "SPC y") 'helm-show-kill-ring))
 
-  (after 'helm-ag
-    (define-key evil-normal-state-map (kbd "SPC a") 'helm-ag))
-  
+
   (define-key evil-normal-state-map (kbd "[ SPC") (bind (evil-insert-newline-above) (forward-line)))
   (define-key evil-normal-state-map (kbd "] SPC") (bind (evil-insert-newline-below) (forward-line -1)))
 
@@ -121,7 +118,7 @@
 
   (define-key evil-normal-state-map (kbd "[ [") 'previous-buffer)
   (define-key evil-normal-state-map (kbd "] ]") 'next-buffer)
-  
+
   (define-key evil-motion-state-map "j" 'evil-next-visual-line)
   (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
 
@@ -143,13 +140,14 @@
 
   (after 'multiple-cursors
     (define-key evil-emacs-state-map (kbd "M-.") 'mc/mark-next-like-this)
-    (define-key evil-emacs-state-map (kbd "M-,") 'mc/mark-previous-like-this)
+    (define-key evil-emacs-state-map (kbd "M-,") 'mc/skip-to-next-like-this)
     (define-key evil-emacs-state-map (kbd "M-/") 'mc/unmark-next-like-this)
-    (define-key evil-visual-state-map (kbd "M-.") 'mc/mark-all-like-this)
-    (define-key evil-visual-state-map (kbd "M-,") 'mc/edit-lines)
-    (define-key evil-normal-state-map (kbd "M-.") 'mc/mark-next-like-this)
-    (define-key evil-normal-state-map (kbd "M-,") 'mc/mark-previous-like-this)
-    (define-key evil-emacs-state-map (kbd "M-/") 'mc/unmark-next-like-this))
+
+    (define-key evil-visual-state-map (kbd "M-.") 'mc/mark-next-like-this)
+    (define-key evil-visual-state-map (kbd "M-,") 'mc/skip-to-next-like-this)
+    (define-key evil-visual-state-map (kbd "M-/") 'mc/unmark-next-like-this)
+    (define-key evil-visual-state-map (kbd "e") 'mc/edit-lines)
+    (define-key evil-visual-state-map (kbd "r") 'mc/mark-all-like-this-dwim))
 
   (after 'ace-jump-mode
     (define-key evil-normal-state-map (kbd "SPC w") 'evil-ace-jump-word-mode)
