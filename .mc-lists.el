@@ -5,11 +5,13 @@
       '(
         TeX-insert-backslash
         beginning-of-visual-line
+        c-electric-semi&comma
         delete-window
         dired-next-line
         dired-previous-line
         dired-toggle-read-only
         end-of-visual-line
+        hippie-expand-no-case-fold
         paredit-forward-delete
         paredit-forward-kill-word
         paredit-kill
