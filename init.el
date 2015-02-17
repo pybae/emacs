@@ -18,7 +18,7 @@
 
 ;; (require 'init-company)
 (require 'init-auto-complete)
-(require 'init-flycheck)
+;; (require 'init-flycheck)
 
 (require 'init-projectile)
 (require 'init-helm)
