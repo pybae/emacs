@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        TeX-insert-backslash
+        autopair-skip-close-maybe
         beginning-of-visual-line
         c-electric-semi&comma
         delete-window

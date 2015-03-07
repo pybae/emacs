@@ -1,3 +1,8 @@
-;; not much to do here
+(require-package 'virtualenvwrapper)
+
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/envs")
 
 (provide 'init-python)
