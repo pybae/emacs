@@ -1,11 +1,12 @@
-(require-package 'elpy)
+(require-package 'virtualenvwrapper)
+(require-package 'jedi)
 
-;; setup the virtual envs work home
-(setenv "WORKON_HOME" "~/envs")
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)                 ; optional
 
-(setq elpy-default-minor-modes '(eldoc-mode
-                                 highlight-indentation-mode
-                                 yas-minor-mode))
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/envs")
 
-(elpy-enable)
 (provide 'init-python)
