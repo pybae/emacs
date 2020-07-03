@@ -1,7 +1,7 @@
  (require 'org)
 
 ;; Whole folder is the agenda files
-(setq org-agenda-files (list "~/Dropbox/org"))
+(setq org-agenda-files (list "~/org"))
 
 
 ;; (require 'ob)

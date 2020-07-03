@@ -6,3 +6,6 @@ var/
 .cache/
 .python-environments/
 /config/;
+elpy/
+network-security*
+transient/

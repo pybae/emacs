@@ -8,6 +8,7 @@
 (require 'init-packages)
 (require 'init-util)
 (require 'init-core)
+(require 'init-flycheck)
 (require 'init-org)
 (require 'init-eyecandy)
 (require 'init-hippie)
@@ -18,7 +19,6 @@
 
 ;; (require 'init-company)
 (require 'init-auto-complete)
-(require 'init-flycheck)
 
 (require 'init-projectile)
 (require 'init-helm)

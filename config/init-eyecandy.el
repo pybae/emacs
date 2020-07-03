@@ -14,7 +14,8 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Fonts
-(set-default-font "Inconsolata-14")
+;; (set-default-font "Inconsolata-14")
+(set-default-font "-*-terminus-*-*-*-*-18-*-*-*-*-*-*-*")
 
 (line-number-mode t)
 (blink-cursor-mode 0)
