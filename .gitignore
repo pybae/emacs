@@ -9,3 +9,4 @@ var/
 elpy/
 network-security*
 transient/
+session*

@@ -1,6 +1,7 @@
 (require-package 'base16-theme)
 (require-package 'ujelly-theme)
 (require-package 'smart-mode-line)
+(require-package 'solarized-theme)
 
 (require 'smart-mode-line)
 (require 'uniquify)
@@ -14,8 +15,7 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Fonts
-;; (set-default-font "Inconsolata-14")
-(set-default-font "-*-terminus-*-*-*-*-18-*-*-*-*-*-*-*")
+(set-default-font "Inconsolata for Powerline-14")
 
 (line-number-mode t)
 (blink-cursor-mode 0)
@@ -47,7 +47,8 @@
 
 (setq ring-bell-function 'ignore)
 
-(load-theme 'ujelly)
+(load-theme 'solarized-dark)
+(set-cursor-color "#eb8f34")
 
 (provide 'init-eyecandy)
 ;;; init-eyecandy.el ends here
