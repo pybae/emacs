@@ -10,18 +10,18 @@
 (require-package 'evil-visualstar)
 (require-package 'evil-indent-textobject)
 (require-package 'evil-matchit)
-(require-package 'surround)
+;; (require-package 'surround)
 
 (require 'evil)
 (require 'evil-leader)
 (require 'evil-indent-textobject)
 (require 'evil-visualstar)
 (require 'evil-matchit)
-(require 'surround)
+;; (require 'surround)
 
 (global-evil-leader-mode)
 (evil-mode 1)
-(global-surround-mode 1)
+;; (global-surround-mode 1)
 
 (dolist (mode '(eshell-mode
                 shell-mode

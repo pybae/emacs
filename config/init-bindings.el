@@ -37,28 +37,28 @@
   ;; Make is such that insert mode is emacs mode
   ;; as emacs mode has more functionality
 
-  (define-key evil-normal-state-map (kbd "i") 'evil-emacs-state)
-  (define-key evil-normal-state-map (kbd "I") (bind
-                                               (evil-emacs-state)
-                                               (beginning-of-visual-line)))
-  (define-key evil-normal-state-map (kbd "a") (bind
-                                               (evil-emacs-state)
-                                               (evil-forward-char)))
-  (define-key evil-normal-state-map (kbd "A") (bind
-                                               (evil-emacs-state)
-                                               (end-of-visual-line)))
-  (define-key evil-normal-state-map (kbd "o") (bind
-                                               (evil-emacs-state)
-                                               (end-of-visual-line)
-                                               (newline-and-indent)))
-  (define-key evil-normal-state-map (kbd "O") (bind
-                                               (evil-emacs-state)
-                                               (evil-previous-line)
-                                               (end-of-visual-line)
-                                               (newline-and-indent)))
+  ;; (define-key evil-normal-state-map (kbd "i") 'evil-emacs-state)
+  ;; (define-key evil-normal-state-map (kbd "I") (bind
+  ;;                                              (evil-emacs-state)
+  ;;                                              (beginning-of-visual-line)))
+  ;; (define-key evil-normal-state-map (kbd "a") (bind
+  ;;                                              (evil-emacs-state)
+  ;;                                              (evil-forward-char)))
+  ;; (define-key evil-normal-state-map (kbd "A") (bind
+  ;;                                              (evil-emacs-state)
+  ;;                                              (end-of-visual-line)))
+  ;; (define-key evil-normal-state-map (kbd "o") (bind
+  ;;                                              (evil-emacs-state)
+  ;;                                              (end-of-visual-line)
+  ;;                                              (newline-and-indent)))
+  ;; (define-key evil-normal-state-map (kbd "O") (bind
+  ;;                                              (evil-emacs-state)
+  ;;                                              (evil-previous-line)
+  ;;                                              (end-of-visual-line)
+  ;;                                              (newline-and-indent)))
 
-  ;; Remap some emacs bindings in insert  mode
-  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+  ;; ;; Remap some emacs bindings in insert  mode
+  ;; (define-key evil-emacs-state-map [escape] 'evil-normal-state)
 
   (define-key evil-insert-state-map (kbd "C-n") 'evil-next-visual-line)
   (define-key evil-insert-state-map (kbd "C-p") 'evil-previous-visual-line)
@@ -100,7 +100,6 @@
   (after 'helm
     (define-key evil-normal-state-map (kbd "C-x b") 'helm-buffers-list)
     (define-key evil-normal-state-map (kbd "SPC e") 'helm-recentf)
-    (define-key evil-normal-state-map (kbd "SPC t") 'helm-etags-select)
     (define-key evil-normal-state-map (kbd "SPC l") 'helm-swoop)
     (define-key evil-normal-state-map (kbd "SPC F") 'helm-locate)
     (define-key evil-normal-state-map (kbd "SPC a") 'helm-ag)

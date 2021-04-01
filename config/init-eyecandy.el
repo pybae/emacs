@@ -47,7 +47,7 @@
 
 (setq ring-bell-function 'ignore)
 
-(load-theme 'solarized-dark)
+(load-theme 'ujelly)
 (set-cursor-color "#eb8f34")
 
 (provide 'init-eyecandy)

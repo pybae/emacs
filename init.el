@@ -8,7 +8,7 @@
 (require 'init-packages)
 (require 'init-util)
 (require 'init-core)
-(require 'init-flycheck)
+;; (require 'init-flycheck)
 (require 'init-org)
 (require 'init-eyecandy)
 (require 'init-hippie)
