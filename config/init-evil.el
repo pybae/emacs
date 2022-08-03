@@ -35,6 +35,8 @@
                 project-explorer-mode))
   (evil-set-initial-state mode 'emacs))
 
+(define-key evil-normal-state-map "TAB" nil)
+
 (defun my-send-string-to-terminal (string)
   (unless (display-graphic-p) (send-string-to-terminal string)))
 
@@ -45,3 +47,8 @@
   (evil-scroll-line-to-center (line-number-at-pos)))
 
 (provide 'init-evil)
+
+(eval-after-load "evil-maps"
+  (define-key evil-motion-state-map "\t" nil))
+
+(define-key evil-motion-state-map "\t" nil)

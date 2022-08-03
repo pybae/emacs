@@ -1,8 +1,4 @@
 (require-package 'paredit)
-(require-package 'autopair)
-
-(require 'autopair)
-(autopair-global-mode)
 
 (require 'paredit)
 

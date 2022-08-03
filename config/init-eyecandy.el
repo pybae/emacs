@@ -1,5 +1,6 @@
 (require-package 'base16-theme)
 (require-package 'ujelly-theme)
+(require-package 'solarized-theme)
 (require-package 'smart-mode-line)
 (require-package 'solarized-theme)
 
@@ -15,7 +16,7 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Fonts
-(set-default-font "Inconsolata for Powerline-14")
+(set-frame-font "Menlo-14" nil t)
 
 (line-number-mode t)
 (blink-cursor-mode 0)
@@ -32,8 +33,6 @@
 (require-package 'diminish)
 (after 'diminish-autoloads
   (diminish 'visual-line-mode)
-  (after 'autopair (diminish 'autopair-mode))
-  (after 'undo-tree (diminish 'undo-tree-mode))
   (after 'auto-complete (diminish 'auto-complete-mode))
   (after 'company (diminish 'company-mode))
   (after 'projectile (diminish 'projectile-mode))
@@ -47,7 +46,7 @@
 
 (setq ring-bell-function 'ignore)
 
-(load-theme 'ujelly)
+(load-theme 'solarized-dark)
 (set-cursor-color "#eb8f34")
 
 (provide 'init-eyecandy)
